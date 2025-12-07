@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.secret_key = "keymoan_final_key"
 
 # --- LINKS ---
-INSTALLER_ID = "https://drive.google.com/uc?export=download&id=1DD-CyW6fQg6T8Mk8kPAWHH1UoEHd975L"
+INSTALLER_LINK = "https://drive.google.com/uc?export=download&id=1DD-CyW6fQg6T8Mk8kPAWHH1UoEHd975L"
 THEME_LINKS = {
     'purple': "https://drive.google.com/uc?export=download&id=1d7nL0t3OwQV4s_PvUk_v0WM3i-aKEkZN",
     'blue':   "https://drive.google.com/uc?export=download&id=1d7nL0t3OwQV4s_PvUk_v0WM3i-aKEkZN",
@@ -117,6 +117,7 @@ def view_data():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+
 
 
 
