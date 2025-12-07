@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ACCESS GRANTED</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta http-equiv="refresh" content="3;url={{ download_link }}">
+</head>
+<body class="thankyou-body">
+    <div id="canvas-container"></div> <div class="glass-card success-card">
+        <h1 class="neon-text-green">ACCESS GRANTED</h1>
+        <div class="loading-bar"><div class="fill"></div></div>
+        <p>INITIALIZING DOWNLOAD PROTOCOL...</p>
+        <p class="sub">Thank you for joining the KeyMoan Initiative.</p>
+        <br>
+        <a href="{{ download_link }}" class="manual-link">CLICK IF STUCK</a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

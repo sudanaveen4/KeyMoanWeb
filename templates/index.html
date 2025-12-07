@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEYMOAN | FINAL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">KEY<span class="pulse">MOAN</span></div>
+        <div class="nav-links">
+            <a href="#hero">VISUALIZER</a>
+            <a href="#themes">THEMES</a>
+            <a href="#developer">DEVELOPER</a>
+            <a href="#download" class="nav-btn">DOWNLOAD</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1 class="glitch" data-text="KEYMOAN">KEYMOAN</h1>
+                <p class="subtitle">ZERO LATENCY // AUDIO INJECTION ENGINE</p>
+                
+                <div class="keyboard-frame">
+                    <div class="key-row"><div class="key">Q</div><div class="key">W</div><div class="key">E</div><div class="key">R</div><div class="key">T</div><div class="key">Y</div><div class="key">U</div><div class="key">I</div><div class="key">O</div><div class="key">P</div></div>
+                    <div class="key-row"><div class="key">A</div><div class="key">S</div><div class="key">D</div><div class="key">F</div><div class="key">G</div><div class="key">H</div><div class="key">J</div><div class="key">K</div><div class="key">L</div></div>
+                    <div class="key-row"><div class="key">Z</div><div class="key">X</div><div class="key">C</div><div class="key">V</div><div class="key">B</div><div class="key">N</div><div class="key">M</div></div>
+                    <div class="key-row"><div class="key space">AUDIO ENGINE ACTIVE</div></div>
+                </div>
+                <p class="instruction">PRESS KEYS TO INTERACT</p>
+            </div>
+        </section>
+
+        <section id="themes">
+            <h2 class="section-title">VISUAL PROTOCOLS</h2>
+            
+            <div class="grid-4">
+                
+                <a href="{{ t['purple'] }}" class="glass-card theme-link t-purple">
+                    <div class="visualizer-icon v-purple">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="theme-info">
+                        <h3>NEON NIGHTS</h3>
+                    </div>
+                    <div class="dl-tag">DOWNLOAD</div>
+                </a>
+
+                <a href="{{ t['blue'] }}" class="glass-card theme-link t-blue">
+                    <div class="visualizer-icon v-blue">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="theme-info">
+                        <h3>CYBER RAIN</h3>
+                    </div>
+                    <div class="dl-tag">DOWNLOAD</div>
+                </a>
+
+                <a href="{{ t['orange'] }}" class="glass-card theme-link t-orange">
+                    <div class="visualizer-icon v-orange">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="theme-info">
+                        <h3>SOLAR FLARE</h3>
+                    </div>
+                    <div class="dl-tag">DOWNLOAD</div>
+                </a>
+
+                <a href="{{ t['green'] }}" class="glass-card theme-link t-green">
+                    <div class="visualizer-icon v-green">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="theme-info">
+                        <h3>TOXIC WASTE</h3>
+                    </div>
+                    <div class="dl-tag">DOWNLOAD</div>
+                </a>
+
+            </div>
+        </section>
+
+        <section id="developer">
+            <div class="glass-card profile-card">
+                <div class="img-wrap">
+                    <img src="{{ url_for('static', filename='dev_pic.png') }}" alt="Dev">
+                    <div class="ring"></div>
+                </div>
+                <h2>FLASH MAN</h2>
+                <p class="role">SYSTEM ARCHITECT</p>
+                
+                <div class="bio-text">
+                    "Architecting high-performance audio engines and next-gen interfaces."
+                    
+                </div>
+
+                <div class="stats-row">
+                    <div class="contact-item">
+    <span>MOBILE</span><br>
+    <a href="tel:+918985275903">+91 8985275903</a>
+</div>
+
+<div class="contact-item">
+    <span>INSTA</span><br>
+    <a href="https://www.instagram.com/flash.man6996" target="_blank">
+        @flash.man6996
+    </a>
+</div>
+                    <div><span>STATUS</span><br><span style="color:#00ff00;">ONLINE</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="download">
+            <div class="glass-card form-card">
+                <div class="form-header">
+                    <h3>SECURE DOWNLOAD</h3>
+                    <div class="led"></div>
+                </div>
+
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="error-msg">{{ messages[0] }}</div>
+                    {% endif %}
+                {% endwith %}
+
+                <form action="/submit" method="POST">
+                    <div class="input-box">
+                        <input type="text" name="fullname" required>
+                        <span>IDENTITY NAME</span>
+                    </div>
+                    <div class="input-box">
+                        <input type="email" name="email" required>
+                        <span>EMAIL ADDRESS</span>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="mobile" required maxlength="10">
+                        <span>MOBILE (10 DIGITS)</span>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="insta" required>
+                        <span>INSTAGRAM ID</span>
+                    </div>
+                    <button type="submit" class="glitch-btn">AUTHENTICATE & DOWNLOAD</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
